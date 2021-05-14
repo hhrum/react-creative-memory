@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/react-creative-memory/static/css/main.71456aae.chunk.css",
-    "main.js": "/react-creative-memory/static/js/main.3105b47b.chunk.js",
-    "main.js.map": "/react-creative-memory/static/js/main.3105b47b.chunk.js.map",
+    "main.css": "/react-creative-memory/static/css/main.ef33b308.chunk.css",
+    "main.js": "/react-creative-memory/static/js/main.b568638f.chunk.js",
+    "main.js.map": "/react-creative-memory/static/js/main.b568638f.chunk.js.map",
     "runtime-main.js": "/react-creative-memory/static/js/runtime-main.7d34aaa4.js",
     "runtime-main.js.map": "/react-creative-memory/static/js/runtime-main.7d34aaa4.js.map",
     "static/js/2.955657fb.chunk.js": "/react-creative-memory/static/js/2.955657fb.chunk.js",
     "static/js/2.955657fb.chunk.js.map": "/react-creative-memory/static/js/2.955657fb.chunk.js.map",
     "index.html": "/react-creative-memory/index.html",
-    "static/css/main.71456aae.chunk.css.map": "/react-creative-memory/static/css/main.71456aae.chunk.css.map",
+    "static/css/main.ef33b308.chunk.css.map": "/react-creative-memory/static/css/main.ef33b308.chunk.css.map",
     "static/js/2.955657fb.chunk.js.LICENSE.txt": "/react-creative-memory/static/js/2.955657fb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.7d34aaa4.js",
     "static/js/2.955657fb.chunk.js",
-    "static/css/main.71456aae.chunk.css",
-    "static/js/main.3105b47b.chunk.js"
+    "static/css/main.ef33b308.chunk.css",
+    "static/js/main.b568638f.chunk.js"
   ]
 }
