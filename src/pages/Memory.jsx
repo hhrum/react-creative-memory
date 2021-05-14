@@ -15,6 +15,7 @@ export const Memory = () => {
     if (!gameSessionIsExist) {
       history.push('/');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameSessionIsExist]);
 
   return (

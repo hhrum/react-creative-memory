@@ -6,7 +6,7 @@ import {Provider} from "react-redux";
 import {App} from "./App";
 import {rootReducer} from "./redux/rootReducer";
 import thunk from "redux-thunk";
-import {HashRouter} from "react-router-dom";
+import {BrowserRouter} from "react-router-dom";
 
 const store = createStore(rootReducer, compose(
   applyMiddleware(thunk),
@@ -14,13 +14,13 @@ const store = createStore(rootReducer, compose(
 ));
 
 const app = (
-  <HashRouter basename={process.env.PUBLIC_URL}>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <Provider store={store}>
       <StrictMode>
         <App/>
       </StrictMode>
     </Provider>
-  </HashRouter>
+  </BrowserRouter>
 );
 
 const rootElement = document.getElementById("root");
