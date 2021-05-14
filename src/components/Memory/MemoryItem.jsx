@@ -10,6 +10,10 @@ export const MemoryItem = ({open, item}) => {
   if (!item)
     return null;
 
+  if (!item.card) {
+    return <div className="memory-item memory-item--removed"/>
+  }
+
   const onClickHandler = (e) => {
     e.preventDefault();
 

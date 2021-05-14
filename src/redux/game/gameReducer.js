@@ -12,7 +12,7 @@ const reducers = {
   [END_SESSION]: (state) => ({...state, gameSessionIsExist: false}),
   [RELOAD_CARD_TO_FIND]: (state) => ({...state, cardsToFind: generateCardsToFind()}),
   [FOUND_CARD]: (state, payload) => ({...state, cardsToFind: state.cardsToFind.filter(card => card.value !== payload.value)}),
-  [SET_ACTIVE_ITEM]: (state, payload) => ({...state, active: payload}),
+  [SET_ACTIVE_ITEM]: (state, {item, timeout}) => ({...state, active: item, activeTimeout: timeout}),
 };
 
 export const gameReducer = (state = gameInitialState, action) => {

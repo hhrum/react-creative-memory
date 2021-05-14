@@ -1,6 +1,6 @@
 import {END_SESSION, FOUND_CARD, RELOAD_CARD_TO_FIND, SET_ACTIVE_ITEM, START_SESSION} from "./gameTypes";
 import {closeTimer, dropTime, incrementTime, initTimer} from "../timer/timerActions";
-import {generateBoard, openItem, closeItems} from "../board/boardActions";
+import {generateBoard, openItem, closeItems, removeItems, closeItem} from "../board/boardActions";
 import {showAlert} from "../alert/alertActions";
 import {convertTimeToMinutesAndSeconds} from "../../utils/timerHelper";
 import {addGameToHistory} from "../history/historyActions";
@@ -55,6 +55,7 @@ export function endSession() {
   }
 }
 
+// TODO: почистить код: избавиться от сильной вложенности; убрать волшебные числа
 export function clickItem(item) {
   return (dispatch, getState) => {
     const {game} = getState();
@@ -62,17 +63,24 @@ export function clickItem(item) {
     dispatch(openItem(item));
 
     if (!game.active) {
-      dispatch(setActiveItem((item)));
+      const timeout = setTimeout(    () => {
+        dispatch(setActiveItem(null));
+        dispatch(closeItem(item));
+      }, 5000)
+
+      dispatch(setActiveItem(item, timeout));
       return null;
     }
 
     if (game.active.card.value === item.card.value) {
       dispatch(foundCard(item.card));
+      dispatch(removeItems([game.active, item]));
       dispatch(checkFinishGame());
     } else {
       dispatch(closeItems([game.active, item]));
     }
 
+    clearTimeout(game.activeTimeout);
     dispatch(setActiveItem(null));
   }
 }
@@ -99,9 +107,9 @@ export function checkFinishGame() {
   }
 }
 
-export function setActiveItem(item) {
+export function setActiveItem(item, timeout = null) {
   return {
     type: SET_ACTIVE_ITEM,
-    payload: item
+    payload: {item, timeout}
   }
 }

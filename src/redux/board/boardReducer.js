@@ -1,6 +1,6 @@
 import {boardInitialState} from "./boardInitialState";
 import {DEFAULT} from "../types";
-import {CLOSE_ITEM, GENERATE_BOARD, OPEN_ITEM} from "./boardTypes";
+import {CLOSE_ITEM, GENERATE_BOARD, OPEN_ITEM, REMOVE_ITEM} from "./boardTypes";
 import {changeItemOnBoard, generateCleanBoard, setItemOnBoard} from "../../utils/boardHelpers";
 
 import cards from "../../data/cards";
@@ -36,7 +36,11 @@ const reducers = {
   [CLOSE_ITEM]: (state, payload) => {
     const board = changeItemOnBoard(state.board, {...payload, isOpen: false});
     return {...state, board};
-  }
+  },
+  [REMOVE_ITEM]: (state, payload) => {
+    const board = changeItemOnBoard(state.board, {...payload, card: null});
+    return {...state, board};
+  },
 };
 
 export const boardReducer = (state = boardInitialState, action) => {
