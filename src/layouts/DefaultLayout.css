@@ -1,0 +1,10 @@
+.default-layout {
+    height: 100%;
+    display: flex;
+
+    flex-direction: column;
+}
+
+.default-layout__content {
+    flex:  1 1 100%;
+}
