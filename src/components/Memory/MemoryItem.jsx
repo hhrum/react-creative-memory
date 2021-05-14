@@ -13,7 +13,7 @@ export const MemoryItem = ({open, item}) => {
   const onClickHandler = (e) => {
     e.preventDefault();
 
-    if (!item.isOpen) {
+    if (!open && !item.isOpen) {
       dispatch(clickItem(item));
     }
   }
