@@ -1,10 +1,21 @@
-import React from "react";
+import React, {useEffect} from "react";
+import {useSelector} from "react-redux";
+import {useHistory} from "react-router-dom";
 import {DefaultLayout} from "../layouts/DefaultLayout";
 import {MemoryBoard} from "../components/Memory/MemoryBoard";
-import './Memory.css';
 import {MemoryTimer} from "../components/Memory/MemoryTimer";
+import './Memory.css';
 
 export const Memory = () => {
+
+  const {gameSessionIsExist} = useSelector(state => state.game);
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!gameSessionIsExist) {
+      history.push('/');
+    }
+  }, [gameSessionIsExist]);
 
   return (
     <DefaultLayout>

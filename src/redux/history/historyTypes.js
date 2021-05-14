@@ -1,0 +1,1 @@
+export const ADD_GAME_TO_HISTORY = "history/ADD_GAME_TO_HISTORY";

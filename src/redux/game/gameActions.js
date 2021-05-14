@@ -1,8 +1,9 @@
 import {END_SESSION, FOUND_CARD, SET_ACTIVE_ITEM, START_SESSION} from "./gameTypes";
-import {closeTimer, incrementTime, initTimer} from "../timer/timerActions";
+import {closeTimer, dropTime, incrementTime, initTimer} from "../timer/timerActions";
 import {generateBoard, openItem, closeItems} from "../board/boardActions";
 import {showAlert} from "../alert/alertActions";
 import {convertTimeToMinutesAndSeconds} from "../../utils/timerHelper";
+import {addGameToHistory} from "../history/historyActions";
 
 // TODO: Переписать
 export function startGame() {
@@ -35,6 +36,8 @@ export function endGame() {
 
     dispatch(pauseGame());
     dispatch(showAlert({title: "Победа!", content: `Вы нашли все карточка за ${convertTimeToMinutesAndSeconds(timer.time)}`}))
+    dispatch(addGameToHistory(timer.time));
+    dispatch(dropTime());
     dispatch(endSession());
   }
 }
