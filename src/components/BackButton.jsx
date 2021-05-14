@@ -11,6 +11,6 @@ export const BackButton = ({children}) => {
     }
 
     return (
-        <div onClick={onClick}>{children || "Назад"}</div>
+        <div style={{paddingLeft: 16}} onClick={onClick}><span style={{cursor: "pointer"}}>{children || "Назад"}</span></div>
     );
 }

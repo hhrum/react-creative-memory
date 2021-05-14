@@ -1,4 +1,4 @@
-import {END_SESSION, FOUND_CARD, SET_ACTIVE_ITEM, START_SESSION} from "./gameTypes";
+import {END_SESSION, FOUND_CARD, RELOAD_CARD_TO_FIND, SET_ACTIVE_ITEM, START_SESSION} from "./gameTypes";
 import {closeTimer, dropTime, incrementTime, initTimer} from "../timer/timerActions";
 import {generateBoard, openItem, closeItems} from "../board/boardActions";
 import {showAlert} from "../alert/alertActions";
@@ -12,6 +12,7 @@ export function startGame() {
 
     if (!game.gameSessionIsExist) {
       dispatch(startSession());
+      dispatch(reloadCardsToFind());
       dispatch(generateBoard());
     }
 
@@ -73,6 +74,12 @@ export function clickItem(item) {
     }
 
     dispatch(setActiveItem(null));
+  }
+}
+
+export function reloadCardsToFind() {
+  return {
+    type: RELOAD_CARD_TO_FIND
   }
 }
 
