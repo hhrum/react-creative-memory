@@ -6,7 +6,7 @@ import {Provider} from "react-redux";
 import {App} from "./App";
 import {rootReducer} from "./redux/rootReducer";
 import thunk from "redux-thunk";
-import HashRouter from "react-router-dom/modules/HashRouter";
+import {HashRouter} from "react-router-dom";
 
 const store = createStore(rootReducer, compose(
   applyMiddleware(thunk),
